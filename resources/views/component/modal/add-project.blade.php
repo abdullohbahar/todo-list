@@ -7,11 +7,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form id="submitProject">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
                             <label class="form-label">Project Name</label>
                             <input type="text" class="form-control" name="name" id="name" required>
+                            <div class="invalid-feedback">
+                                The project name has already been taken
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
                             <label class="form-label">Deadline</label>

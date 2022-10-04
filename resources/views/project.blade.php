@@ -21,6 +21,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="text-uppercase">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, incidunt!</h5>
+                        <p>Deadline : 12-01-2022</p>
+                        <p>Client : Lorem, ipsum.</p>
                     </div>
                 </div>
             </a>
@@ -33,4 +35,5 @@
 @endsection
 
 @push('addons-js')
+    <script src="{{ asset('./js/add-project.js?version=').$versions->version }}"></script>
 @endpush
