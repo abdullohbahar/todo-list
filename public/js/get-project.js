@@ -1,38 +1,43 @@
-$("#submitProject").on("submit", function (e) {
+function getProject() {
     $.ajax({
         url: "/get-project",
         method: "GET",
         dataType: "json",
-        beforeSend: function () {
-            Swal.fire({
-                title: "Processing Data",
-                didOpen: () => {
-                    Swal.showLoading();
-                },
-            });
-        },
         success: function (response) {
             if (response.status == 200) {
-                Swal.close();
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Project Added Successfully",
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                $("#projects").html("");
+                $.each(response.data, function (key, value) {
+                    if (value.deadline == null) {
+                        var deadline = "-";
+                    } else {
+                        var deadline = value.deadline;
+                    }
 
-                $("input").val("");
-                $("#addProject").hide();
-                $(".modal-backdrop").removeClass();
-                $(".fade").removeClass();
-                $(".show").removeClass();
-            } else {
-                if (response.errors.name != null) {
-                    Swal.close();
-                    $("#name").addClass("is-invalid");
-                }
+                    if (value.client == null) {
+                        var client = "-";
+                    } else {
+                        var client = value.client;
+                    }
+
+                    $("#projects").append(`
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <a href="" class="link-dark text-decoration-none">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-uppercase">${value.name}</h5>
+                                        <p>Deadline : ${deadline}</p>
+                                        <p>Client : ${client}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    `);
+                });
             }
         },
     });
+}
+
+$(document).ready(function () {
+    getProject();
 });

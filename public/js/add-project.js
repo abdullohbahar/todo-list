@@ -32,6 +32,7 @@ $("#submitProject").on("submit", function (e) {
                 $(".modal-backdrop").removeClass();
                 $(".fade").removeClass();
                 $(".show").removeClass();
+                getProject();
             } else {
                 if (response.errors.name != null) {
                     Swal.close();

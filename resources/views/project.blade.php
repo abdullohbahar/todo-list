@@ -16,17 +16,7 @@
         </div>
     </div>
     <div class="row" id="projects">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-            <a href="" class="link-dark text-decoration-none">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="text-uppercase">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, incidunt!</h5>
-                        <p>Deadline : 12-01-2022</p>
-                        <p>Client : Lorem, ipsum.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        
     </div>
 </section>
 
@@ -36,4 +26,5 @@
 
 @push('addons-js')
     <script src="{{ asset('./js/add-project.js?version=').$versions->version }}"></script>
+    <script src="{{ asset('./js/get-project.js?version=').$versions->version }}"></script>
 @endpush
