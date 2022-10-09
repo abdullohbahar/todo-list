@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProjectController::class, 'index']);
 Route::get('/get-project', [ProjectController::class, 'getProject'])->name('get-project');
 Route::post('/store-project', [ProjectController::class, 'store'])->name('store-project');
+Route::get('/task/{slug}', [TaskController::class, 'index'])->name('task');

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use App\Models\Project;
+use App\Models\Version;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -11,9 +14,23 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        //
+        $projects = Project::where('slug', $slug);
+        $getProjects = $projects->firstorfail();
+
+        $tasks = Task::where('project_id', $getProjects->id);
+        $getTasks = $tasks->get();
+
+        $version = Version::first();
+
+        $data = [
+            'versions' => $version,
+            'projects' => $getProjects,
+            'tasks' => $getTasks,
+        ];
+
+        return view('detail-task', $data);
     }
 
     /**

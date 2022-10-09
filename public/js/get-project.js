@@ -21,7 +21,7 @@ function getProject() {
 
                     $("#projects").append(`
                         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <a href="" class="link-dark text-decoration-none">
+                            <a href="/task/${value.slug}" class="link-dark text-decoration-none">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-uppercase">${value.name}</h5>
